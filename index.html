@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida alla Preparazione del Corso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+
+        .nav-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        h4 {
+            color: #e74c3c;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+
+        .warning {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #e17055;
+        }
+
+        .checklist {
+            background: linear-gradient(120deg, #d1f2a5 0%, #efeebc 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .checklist h4 {
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .emergency-kit {
+            background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .quick-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .print-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .navigation, .print-btn {
+                display: none;
+            }
+            
+            .content-section {
+                display: block !important;
+                background: white;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Guida alla Preparazione del Corso</h1>
+            <p class="subtitle">La tua risorsa completa per lezioni efficaci e professionali</p>
+        </header>
+
+        <div class="navigation">
+            <button class="nav-btn active" onclick="showSection('preparazione')">📋 Preparazione</button>
+            <button class="nav-btn" onclick="showSection('inizio')">🚀 Inizio Lezione</button>
+            <button class="nav-btn" onclick="showSection('durante')">⚡ Durante</button>
+            <button class="nav-btn" onclick="showSection('gestione')">🎯 Gestione Classe</button>
+            <button class="nav-btn" onclick="showSection('chiusura')">✅ Chiusura</button>
+            <button class="nav-btn" onclick="showSection('elena')">👩‍🏫 Per Elena</button>
+            <button class="nav-btn" onclick="showSection('checklist')">📝 Checklist</button>
+        </div>
+
+        <section id="preparazione" class="content-section active">
+            <h2>📋 Prima della Lezione - Preparazione</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Preparazione Strategica</h3>
+                <ul>
+                    <li><strong>Materiali e argomento:</strong> Raccogli tutto il necessario, scegli l'argomento esatto - niente dispersione, massimo focus</li>
+                    <li><strong>Scaletta scritta:</strong> Costruisci una timeline con orari previsti per ogni sezione</li>
+                    <li><strong>Slide minime:</strong> Prepara schemi visivi e 2-3 storie o aneddoti pratici</li>
+                    <li><strong>Varianti di spiegazione:</strong> Prevedi almeno un modo alternativo di spiegare ogni punto difficile</li>
+                    <li><strong>Prova generale:</strong> Allenati a esporre a voce alta, temporizza, verifica la durata</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <h4>⚠️ Preparazione Difensiva</h4>
+                <ul>
+                    <li><strong>Domande prevedibili:</strong> Prepara una lista con risposte pronte</li>
+                    <li><strong>Gestione imprevisti:</strong> Immagina 2-3 scenari (domanda fuori tema, disattenzione, problemi tecnici) e decidi risposte standard</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inizio" class="content-section">
+            <h2>🚀 Fase Iniziale - Primi Minuti in Aula</h2>
+            
+            <div class="highlight">
+                <h3>🎬 Setup Vincente</h3>
+                <ul>
+                    <li><strong>Arrivo anticipato:</strong> Sistema la postazione, verifica slide e materiali</li>
+                    <li><strong>Presentazione efficace:</strong> Saluta, presenta te stesso e l'obiettivo - breve, autorevole, rassicurante</li>
+                    <li><strong>Regole chiare:</strong> Spiega subito le "regole del gioco" - tempo, domande, pause</li>
+                </ul>
+            </div>
+
+            <div class="emergency-kit">
+                <h4>🚨 Soluzioni Rapide per Difficoltà Iniziali</h4>
+                <div class="quick-tips">
+                    <div class="tip-card">
+                        <h4>😰 Ansia o Vuoto Mentale</h4>
+                        <p><strong>Soluzione:</strong> Guarda la prima slide, respira profondamente, enuncia l'obiettivo ad alta voce</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>😴 Scarsa Attenzione</h4>
+                        <p><strong>Soluzione:</strong> Alza il tono, chiedi un esempio concreto, coinvolgi direttamente: "Chi di voi ha già visto questa procedura?"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="durante" class="content-section">
+            <h2>⚡ Durante la Lezione</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Conduzione Efficace</h3>
+                <ul>
+                    <li><strong>Flessibilità controllata:</strong> Segui la scaletta ma resta adattabile - taglia esempi per recuperare tempo se necessario</li>
+                    <li><strong>Contatto visivo:</strong> Mantienilo costante, cerca segnali di perdita di attenzione</li>
+                    <li><strong>Ritmo dinamico:</strong> Alterna spiegazione, domande e ascolto attivo</li>
+                    <li><strong>Chiarezza prioritaria:</strong> Se un punto non è chiaro, fermati e ripeti in modo diverso con esempi pratici</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <h4>⚠️ Segnali di Allarme da Monitorare</h4>
+                <ul>
+                    <li>Sbadigli frequenti</li>
+                    <li>Chiacchiere tra partecipanti</li>
+                    <li>Sguardi persi o distratti</li>
+                    <li>Uso eccessivo di dispositivi</li>
+                </ul>
+                <p><strong>Azione immediata:</strong> Cambia ritmo, lancia una domanda, usa una storia vera per riattivare l'attenzione</p>
+            </div>
+
+            <div class="emergency-kit">
+                <h4>🚨 Gestione Problemi Tecnici</h4>
+                <p><strong>Regola d'oro:</strong> Prosegui senza scusarti. Usa lavagna, gesti, esempi pratici. La tecnologia è uno strumento, non il protagonista.</p>
+            </div>
+        </section>
+
+        <section id="gestione" class="content-section">
+            <h2>🎯 Gestione Domande e Classe</h2>
+            
+            <div class="highlight">
+                <h3>💬 Gestione Strategica delle Domande</h3>
+                <ul>
+                    <li><strong>Valutazione rapida:</strong> Non rispondere subito - valuta se la risposta interessa tutti o rischia di deragliare</li>
+                    <li><strong>Coinvolgimento attivo:</strong> "Qualcun altro ha lo stesso dubbio?", "Secondo voi qual è la soluzione?"</li>
+                    <li><strong>Onestà professionale:</strong> Se non sai, ammettilo serenamente e prometti verifica successiva</li>
+                    <li><strong>Controllo delle interruzioni:</strong> Domande troppo lunghe o personali? Interrompi gentilmente: "Restiamo sul tema, riprendiamo dopo"</li>
+                </ul>
+            </div>
+
+            <div class="quick-tips">
+                <div class="tip-card">
+                    <h4>🤐 Partecipazione Scarsa</h4>
+                    <p><strong>Soluzione:</strong> Chiama direttamente qualcuno, proponi piccoli gruppi di discussione</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🗣️ Partecipazione Eccessiva</h4>
+                    <p><strong>Soluzione:</strong> Ringrazia, passa gentilmente la parola ad altri</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⚔️ Polemiche o Negatività</h4>
+                    <p><strong>Soluzione:</strong> Non entrare in conflitto, ribadisci le regole, chiudi con decisione</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="chiusura" class="content-section">
+            <h2>✅ Chiusura e Verifica</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Finale Efficace</h3>
+                <ul>
+                    <li><strong>Riepilogo rapido:</strong> Punti chiave, cosa porta a casa chi ascolta</li>
+                    <li><strong>Verifica apprendimento:</strong> Almeno una domanda a tutta la classe: "Cosa ricorderete di più di oggi?"</li>
+                    <li><strong>Risorse future:</strong> Spiega come rivedere i materiali o dove trovare approfondimenti</li>
+                    <li><strong>Uscita sicura:</strong> Saluta con decisione, ringrazia, esci con sicurezza anche se restano domande irrisolte</li>
+                </ul>
+            </div>
+
+            <div class="emergency-kit">
+                <h4>🧠 Schema Mentale "Go-To"</h4>
+                <p><strong>Sequenza vincente:</strong> Obiettivo chiaro → Scaletta visiva → Prevedere problemi → Esporre, ascoltare, adattare → Gestire domande senza perdere focus → Chiudere in controllo</p>
+            </div>
+        </section>
+
+        <section id="elena" class="content-section">
+            <h2>👩‍🏫 Sezione Specifica per Elena</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Procedura Completa per Creare Lezioni OSS</h3>
+                <p><strong>Strumento principale:</strong> ChatGPT (https://chatgpt.com)</p>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Processo Step-by-Step</h4>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="elena1">
+                    <label for="elena1"><strong>STEP 1:</strong> Copia e incolla il testo base in ChatGPT</label>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0; font-family: monospace; font-size: 0.9em;">
+                    <strong>Testo da copiare:</strong><br>
+                    <em>Sto creando una lezione completa destinata alla formazione di Operatori Socio Sanitari (OSS). La lezione deve essere chiara, completa, aggiornata, e immediatamente utilizzabile dal docente senza necessità di integrazioni aggiuntive.</em><br><br>
+                    <strong>Argomento della lezione:</strong><br>
+                    <em>[INSERIRE ARGOMENTI DELLA LEZIONE QUI]</em><br><br>
+                    <em>I contenuti prodotti devono rispettare le seguenti regole:<br>
+                    - Informazioni scientificamente corrette e aggiornate secondo linee guida italiane o internazionali<br>
+                    - Linguaggio semplice e chiaro, adatto al livello di formazione di un OSS<br>
+                    - Autonomia totale del contenuto prodotto: il docente deve poter utilizzare la lezione così com'è, senza ulteriori modifiche o aggiunte</em><br><br>
+                    <em>La lezione deve essere strutturata in slide numerate, pronte per essere impaginate in Canva, secondo la struttura standard seguente:</em><br>
+                    <em>Slide 1: Titolo, Introduzione e obiettivi</em><br>
+                    <em>Slide 2: Concetti e definizioni fondamentali</em><br>
+                    <em>Slide 3: Suddivisione chiara dell'argomento in categorie o sezioni</em><br>
+                    <em>Slide 4: Fattori causali, di rischio, condizioni collegate</em><br>
+                    <em>Slide 5: Situazioni pratiche a rischio e implicazioni operative per OSS</em><br>
+                    <em>Slide 6: Comportamenti corretti, protocolli o buone pratiche operative</em><br>
+                    <em>Slide 7: Caso pratico o scenario interattivo per coinvolgere gli OSS</em><br>
+                    <em>Slide 8: Sintesi finale, riepilogo dei messaggi chiave</em><br>
+                    <em>Slide 9: Quiz rapido finale (3-5 domande chiuse per verifica)</em><br>
+                    <em>Slide 10: Spazio per domande o discussione in aula</em><br><br>
+                    <em>Per ogni slide produci esattamente: Un Titolo chiaro, Contenuti chiave espressi in punti elenco sintetici e completi, Almeno un esempio pratico operativo o scenario realistico, Una domanda o quiz interattivo per stimolare attenzione e verifica, Suggerimenti grafici sintetici (icone, layout consigliato, colori) per agevolare l'impaginazione in google slides</em><br><br>
+                    <em>Genera la lezione completa seguendo rigorosamente queste istruzioni.</em>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="elena2">
+                    <label for="elena2"><strong>STEP 2:</strong> Sostituisci [INSERIRE ARGOMENTI DELLA LEZIONE QUI] con l'argomento specifico</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="elena3">
+                    <label for="elena3"><strong>STEP 3:</strong> Attendi la generazione completa della lezione</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="elena4">
+                    <label for="elena4"><strong>STEP 4:</strong> Se vuoi un file Word scaricabile, aggiungi: "Forniscimi un file word da utilizzare con il testo generato"</label>
+                </div>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="elena5">
+                    <label for="elena5"><strong>STEP 5:</strong> Riavvia la pagina ChatGPT per il prossimo argomento</label>
+                </div>
+            </div>
+
+          <div class="warning">
+              <h4>⚠️ Argomenti da Preparare - Malattie Infettive e Sicurezza</h4>
+              <ul>
+                  <li><strong>Punto 1:</strong> Epidemiologia e modalità di trasmissione delle malattie infettive: agenti infettivi, fonti di infezione, modalità di trasmissione</li>
+                  <li><strong>Punto 2:</strong> Prevenzione e profilassi delle malattie infettive</li>
+                  <li><strong>Punto 3:</strong> Le infezioni correlate ai processi di assistenza: epidemiologia, impatto economico e sociale, caratteristiche; microrganismi multiresistenti</li>
+                  <li><strong>Punto 4:</strong> Il rischio biologico: contatto accidentale, primo intervento, profilassi post esposizione</li>
+                  <li><strong>Punto 5:</strong> Le precauzioni standard: igiene delle mani, uso dei DPI (esercitazioni)</li>
+                  <li><strong>Punto 6:</strong> Le precauzioni basate sulle vie di trasmissione: isolamento, utilizzo dei DPI aggiuntivi in relazione alle vie di trasmissione (esercitazioni)</li>
+                  <li><strong>Punto 7:</strong> Differenziazione, raccolta e stoccaggio dei rifiuti sanitari secondo la normativa vigente nelle strutture e a domicilio</li>
+                  <li><strong>Punto 8:</strong> Detergenti, antisettici, disinfettanti: caratteristiche, lettura etichetta, concentrazioni, indicazioni d’uso, conservazione, scadenze</li>
+                  <li><strong>Punto 9:</strong> Interventi igienico-sanitari su dispositivi medici e presidi riutilizzabili: decontaminazione, detersione/pulizia, disinfezione, alta disinfezione, sterilizzazione</li>
+                  <li><strong>Punto 10:</strong> Conservazione e stoccaggio del materiale sterile</li>
+                  <li><strong>Punto 11:</strong> Disinfestazione: aspetti applicativi</li>
+              </ul>
+          </div>
+
+
+
+
+            <div class="warning">
+                <h4>⚠️ Argomenti da Preparare - OB 323 ASSISTENZA ALLA PERSONA ANZIANA</h4>
+                <p><strong>Elena deve preparare i punti 10-13 (in presenza):</strong></p>
+                <ul>
+                    <li><strong>Punto 10:</strong> Aspetti assistenziali relativi ai problemi specifici dell'anziano: malnutrizione e disidratazione; stipsi, incontinenza urinaria e fecale</li>
+                    <li><strong>Punto 11:</strong> Prevenzione della contenzione; rischi, mezzi fisici e meccanici della contenzione, osservazione della persona sottoposta a contenzione</li>
+                    <li><strong>Punto 12:</strong> Approcci con assistito e famiglia per migliorare l'impatto su benessere, relazioni e abitudini determinato dall'ospedalizzazione e dall'inserimento in strutture residenziali</li>
+                    <li><strong>Punto 13:</strong> Aspetti relazionali con l'assistito e la famiglia</li>
+                </ul>
+            </div>
+
+            <div class="quick-tips">
+                <div class="tip-card">
+                    <h4>💡 Suggerimento per Argomenti Multipli</h4>
+                    <p>Per gli argomenti complessi, puoi suddividerli in più lezioni separate. Ad esempio, "Punto 10" può diventare una lezione, "Punto 11" un'altra, ecc.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🔗 Link Utili</h4>
+                    <p><strong>Google Docs:</strong> <a href="https://support.google.com/docs/answer/1663349?sjid=4204691114920549684-EU" target="_blank">Guida utilizzo</a></p>
+                    <p><strong>Google Slides:</strong> <a href="https://support.google.com/docs/answer/2763168?hl=it&co=GENIE.Platform%3DDesktop" target="_blank">Guida PowerPoint</a></p>
+                </div>
+            </div>
+
+            <div class="emergency-kit">
+                <h4>🚨 Se Ti Perdi o Dimentichi</h4>
+                <p><strong>Riferimento rapido:</strong></p>
+                <ol>
+                    <li>Vai su https://chatgpt.com</li>
+                    <li>Copia il testo base dalla sezione sopra</li>
+                    <li>Sostituisci l'argomento specifico</li>
+                    <li>Ottieni la lezione completa</li>
+                    <li>Riavvia per il prossimo argomento</li>
+                </ol>
+            </div>
+        </section>
+            <h2>📝 Checklist Essenziale</h2>
+            
+            <div class="checklist">
+                <h4>✅ Checklist di Preparazione (da stampare)</h4>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Argomento chiaro e obiettivo fissato</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Scaletta + slide pronte</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Aneddoti/esempi pratici preparati</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">Varianti di spiegazione per punti difficili</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">Domande prevedibili con risposte pronte</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">Risposte standard per imprevisti</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7">
+                    <label for="check7">Routine anti-ansia memorizzata</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check8">
+                    <label for="check8">Piano B tecnico pronto</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check9">
+                    <label for="check9">Regole iniziali da enunciare</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check10">
+                    <label for="check10">Ritmo adattabile e pause programmate</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check11">
+                    <label for="check11">Verifica finale apprendimento pianificata</label>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>🎯 Mantra del Formatore</h3>
+                <p style="font-size: 1.2em; font-weight: 600; text-align: center; font-style: italic;">
+                    "Non serve altro. Preparazione + Flessibilità + Controllo = Successo"
+                </p>
+            </div>
+
+            <button class="print-btn" onclick="window.print()">🖨️ Stampa Checklist</button>
+        </section>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Nascondi tutte le sezioni
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Rimuovi la classe active da tutti i bottoni
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Mostra la sezione selezionata
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Aggiungi la classe active al bottone selezionato
+            event.target.classList.add('active');
+        }
+
+            // Salva stato delle checkbox nel localStorage (mantenuto per compatibilità)
+            // Non usa localStorage per rispettare le limitazioni, ma mantiene funzionalità in memoria
+            let checkboxStates = {};
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                
+                // Salva quando cambiano (solo in memoria per questa sessione)
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        checkboxStates[this.id] = this.checked;
+                    });
+                });
+            });
+    </script>
+</body>
+</html>
